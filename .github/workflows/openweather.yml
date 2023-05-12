@@ -5,14 +5,9 @@ name: OpenWeather_06
 
 on:
   push:
-    branches: [ "main", "test"]
+    branches: [ "main"]
   pull_request:
-    branches: [ "main", "test"]
-
-permissions:
-  checks: write
-  pull-requests: write
-  contents: read
+    branches: [ "main"]
 
 jobs:
   build:
@@ -58,9 +53,10 @@ jobs:
         allure_history: allure-history
         keep_reports: 20
 
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: allure-history
+    - name: Commit Allure report
+      if: always()
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history

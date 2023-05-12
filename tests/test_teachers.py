@@ -14,8 +14,8 @@ def test_open_sign_in_link(driver, open_and_load_main_page):
 
 def test_should_display_value_for_valid_input(driver, open_and_load_main_page, wait):
     page = MainPage(driver)
-    page.search_city(wait, 'New York')
+    page.check_city_searching_result(wait, 'New York')
 
 def test_should_display_not_found_for_invalid_input(driver, open_and_load_main_page, wait):
     page = MainPage(driver)
-    page.search_city(wait, 'Neverland')
+    page.check_city_searching_result(wait, 'Neverland')

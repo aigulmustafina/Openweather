@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri May 12 09:30:56 GMT 2023","Fri May 12 09:30:58 GMT 2023","2194","tests","test_teachers","","","","test_open_sign_in_link",""
+"passed","Fri May 12 09:31:07 GMT 2023","Fri May 12 09:31:33 GMT 2023","26276","tests","test_teachers","","","","test_should_display_value_for_valid_input",""
+"passed","Fri May 12 09:30:43 GMT 2023","Fri May 12 09:30:47 GMT 2023","3852","tests","test_teachers","","","","test_should_open_given_link",""
+"passed","Fri May 12 09:31:42 GMT 2023","Fri May 12 09:31:43 GMT 2023","782","tests","test_teachers","","","","test_should_display_not_found_for_invalid_input",""

@@ -14,10 +14,23 @@ class MainPage(BasePage):
     no_results_notification = (By.CSS_SELECTOR, 'div.widget-notification > span')
     not_found_message = (By.CSS_SELECTOR, '.sub.not-found.notFoundOpen')
 
-    def check_city_searching_result(self, wait, city):
+    def fill_search_city_field(self, city):
         search_city_input = self.driver.find_element(*self.search_city_field)
         search_city_input.send_keys(city)
+
+    def click_search_city_button(self, city):
+        self.fill_search_city_field(city)
         self.driver.find_element(*self.search_button).click()
+
+    def check_dropdown_options(self, city):
+        self.click_search_city_button(city)
+        options = self.driver.find_elements(*self.search_dropdown)
+        for option in options:
+            assert city in option
+
+
+    def check_city_searching_result(self, wait, city):
+        self.click_search_city_button(city)
         expected_city = city
         expected_error_message = f'No results for {city}'
         if self.element_is_displayed(*self.no_results_notification, wait):
